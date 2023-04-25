@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "version": "cpp",
+        "__assert": "cpp",
+        "__verbose_abort": "cpp",
+        "__config": "cpp",
+        "__config_site": "cpp"
+    }
+}
