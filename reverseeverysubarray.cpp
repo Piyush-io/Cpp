@@ -15,13 +15,16 @@ public:
     void reverseInGroups(vector<long long> &arr, int n, int k)
     {
         // code here
-        for (int i = 0; i < n; i += 3)
+        for (int i = 0; i < n; i += k)
         {
-            int n = arr.size();
-            for (int j = 0; j < n / k; j++)
-            {
-                swap(arr[i], arr[n - i - k]);
-            }
+            int left = i;
+
+            // to handle case when k is not multiple of n
+            int right = min(i + k - 1, n - 1);
+
+            // reverse the sub-array [left, right]
+            while (left < right)
+                swap(arr[left++], arr[right--]);
         }
     }
 };
@@ -34,7 +37,6 @@ int main()
     vector<long long> arr;
     int k;
     cin >> k;
-
     for (long long i = 0; i < n; i++)
     {
         long long x;
