@@ -9,31 +9,27 @@ using namespace std;
 class Solution
 {
 public:
+public:
     int betBalance(string result)
     {
-        // code here
+        int n = result.length();
         int sum = 4;
         int bet = 1;
-        int i = 0;
-        while (i < result.size())
+        for (int i = 0; i < n; i++)
         {
+            if (sum < bet)
+                return -1;
+
             if (result[i] == 'W')
             {
                 sum += bet;
                 bet = 1;
-                i++;
-                cout << sum << endl;
-                cout << bet << endl << endl;
             }
-            else
+
+            if (result[i] == 'L')
             {
-                if (bet > sum)
-                    return -1;
                 sum -= bet;
-                bet *= 2;
-                i++;
-                cout << sum << endl;
-                cout << bet << endl << endl;
+                bet = bet * 2;
             }
         }
         return sum;
