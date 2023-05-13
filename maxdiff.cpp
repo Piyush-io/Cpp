@@ -21,7 +21,7 @@ public:
         {
             rightMax[i] = max(rightMax[i + 1], arr[i]);
         }
-
+ 
         int i = 0, j = 0, maxDiff = -1;
         while (i < n && j < n)
         {
