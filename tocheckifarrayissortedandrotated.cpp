@@ -11,34 +11,30 @@ class Solution{
     // num: length of array
     // This function returns true or false
     //Function to check if array is sorted and rotated.
-    bool checkRotatedAndSorted(int arr[], int num){
-    bool res1 = true; // initialize to false
-    bool res2 = true; 
-    int min = 0;
-    for(int i = 0 ; i < num ; i++)
-        if(arr[i] < arr[min])
-            min = i;
-
-    for(int i = 0 ; i < min ; i++)
-    {
-        if(arr[i] > arr[i+1])
-            res1 = false;
-            break;
-    }
-    
-    for(int i = min ; i < num ; i++)
-    {
-        if(arr[i] > arr[i+1])
-            res2 = false;
-            break;
-    }
-    
-    if(res1 && res2 && arr[num-1] < arr[0])
-        return true;
-    else 
+    bool checkRotatedAndSorted(int arr[], int n)
+    {   
+        int res = 0;
+        if(arr[0] > arr[n-1])
+            {
+                for(int i= 0 ; i < n-1 ; i++ )
+                    if(arr[i] > arr[i+1])
+                        res++;
+            }
+            if(res == 1)
+            return true;
+            
+        res = 0;
+        if(arr[0] < arr[n-1])
+            {
+                for(int i= 0 ; i < n-1 ; i++ )
+                    if(arr[i] < arr[i+1])
+                        res++;
+            }
+            if(res == 1)
+                return true;
+        
         return false;
-}
-
+    }
 };
 
 //{ Driver Code Starts.
