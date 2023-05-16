@@ -1,27 +1,38 @@
+//{ Driver Code Starts
 // C++ program to remove recurring digits from
 // a given number
 #include <iostream>
 using namespace std;
 
+
+// } Driver Code Ends
+    
+
 class Solution{
+    //Function to find the leaders in the array.
     public:
-    vector<int> leaders(int a[], int n){
+    vector<int> leaders(int a[], int n)
+    {
         // Code here
         vector<int> arr;
-        
-        int max = a[n-1];
+        int max = a[n - 1];
+        int count = 1;
         arr.push_back(max);
-        for (int i = n-2; i >= 0 ; i--)
+        for (int i = n - 2; i >= 0; i--)
         {
-            if (arr[i] > max)
+            if (a[i] >= max)
             {
-                arr.push_back(arr[i]);
-                max = arr[i];
+                arr.push_back(a[i]);
+                max = a[i];
+                count++;
             }
         }
-          return arr;
+        reverse(arr.begin() , arr.end());
+        return arr;
     }
 };
+
+//{ Driver Code Starts.
 
 int main()
 {
