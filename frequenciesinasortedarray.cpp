@@ -5,8 +5,8 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
-    public:
-    //Function to count the frequency of all elements from 1 to N in the array.
+public:
+    // Function to count the frequency of all elements from 1 to N in the array.
     vector<int> frequencies(long long *arr, int n)
     {
         // code here
@@ -14,17 +14,21 @@ class Solution
         int count = 0;
         for (int i = 0; i < n; i++)
         {
-            if (arr[i] == arr[i-1] || i == 0 || i == n - 1)
+            if (i == 0)
             {
                 count++;
             }
-            else
+            else if (arr[i] == arr[i - 1])
+            {
+                count++;
+            }
+            else if (arr[i] != arr[i - 1])
             {
                 v.push_back(count);
                 count = 1;
             }
-            
         }
+        v.push_back(count);
         return v;
     }
 };
@@ -56,7 +60,8 @@ int main()
         vector<int> v = ob.frequencies(arr, n);
 
         // printing the elements
-        for (int i = 0; i < n; i++)
+        int N = v.size();
+        for (int i = 0; i < N ; i++)
             cout << v[i] << " ";
         cout << endl;
     }
