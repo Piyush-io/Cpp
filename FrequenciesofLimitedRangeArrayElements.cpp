@@ -1,29 +1,26 @@
 //{ Driver Code Starts
-#include <iostream>
-#include <vector>
+#include<iostream>
 using namespace std; 
 
 // } Driver Code Ends
 class Solution{
     public:
     //Function to count the frequency of all elements from 1 to N in the array.
-    int frequencyCount(vector<int>& arr,int N, int P)
+    void frequencyCount(vector<int>& A,int N, int P)
     { 
-        vector<int> v(P, 0);
+        vector<int> freq(N, 0); // Initialize frequency vector
 
-        for (int i = 1; i < P; i++)
+        for (int i = 0; i < A.size(); i++) 
         {
-            int count = 0;
-            for (int j = 0; j < N; j++)
-            {
-                if (arr[j] == i)
-                {
-                    count++;
-                }
+            if (A[i] > 0 && A[i] <= N) {
+                freq[A[i] - 1]++;
             }
-            v.push_back(count);
         }
-        return v;
+
+        for(int i = 0 ; i < N ; i++)
+        {
+            A[i] = freq[i];
+        }
     }
 };
 
@@ -52,11 +49,11 @@ int main()
         cin >> P;
         Solution ob;
         //calling frequncycount() function
-		vector<int> v = ob.frequencyCount(arr, N, P); 
-		int size = v.size();
+		ob.frequencyCount(arr, N, P); 
+		
 		//printing array elements
-	    for (int i = 0; i < size ; i++) 
-			cout << v[i] << " ";
+	    for (int i = 0; i < N ; i++) 
+			cout << arr[i] << " ";
 	    cout << endl;
 	}	
 	return 0; 
