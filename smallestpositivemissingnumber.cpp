@@ -10,17 +10,17 @@ public:
     // Function to find the smallest positive number missing from the array.
     int missingNumber(int arr[], int n)
     {
-        bool present[n + 1] = {false};
+        bool ispresent[n + 1] = {false};
 
         // Mark the occurrences
         for (int i = 0; i < n; i++)
         {
             if (arr[i] > 0 && arr[i] <= n)
-                present[arr[i]] = true;
+                ispresent[arr[i]] = true;
         }
 
         for (int i = 1; i <= n; i++)
-            if (!present[i])
+            if (!ispresent[i])
                 return i;
 
         return n + 1;
