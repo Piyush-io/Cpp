@@ -2,22 +2,22 @@
 #include <iostream>
 using namespace std;
 
+
 // } Driver Code Ends
 
-class Solution
-{
-public:
-    // Function to find minimum adjacent difference in a circular array.
-    //  arr[]: input array
-    //  n: size of array
-    int minAdjDiff(int arr[], int n)
-    {
+class Solution{
+    public:
+    //Function to find minimum adjacent difference in a circular array.
+    // arr[]: input array
+    // n: size of array
+    int minAdjDiff(int arr[], int n){    
         // Your code here
-        int min_diff = INT_MAX;
-        for (int i = 0; i < n - 1; i++)
+        int min_diff = abs(arr[n-1] - arr[0]) ;
+        int diff;
+        for(int i = 0 ; i < n-1 ; i++)
         {
-            int diff = arr[i] - arr[i + 1];
-            min_diff = min(min_diff, diff);
+            diff = abs(arr[i] - arr[i+1]);
+            min_diff = min(min_diff ,  diff);
         }
         return min_diff;
     }
@@ -29,21 +29,21 @@ public:
 int main()
 {
     int t;
-    cin >> t; // Input testcases
-
-    while (t--) // While testcases exist
+    cin>>t; //Input testcases
+    
+    while(t--) //While testcases exist
     {
         int n;
-        cin >> n; // Input size of array
-
-        int arr[n]; // Array of size n
-
-        for (int i = 0; i < n; i++)
+        cin>>n; //Input size of array
+        
+        int arr[n]; //Array of size n
+        
+        for(int i = 0; i < n; i++)
         {
-            cin >> arr[i]; // input elements of array
+            cin>>arr[i]; //input elements of array
         }
         Solution ob;
-
+        
         cout << ob.minAdjDiff(arr, n) << endl;
     }
     return 0;
