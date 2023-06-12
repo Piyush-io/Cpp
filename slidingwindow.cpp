@@ -32,4 +32,5 @@ int main()
     }
     int sum = slidingwindow(arr, n, k);
     cout << sum << endl;
+    delete arr;
 }
