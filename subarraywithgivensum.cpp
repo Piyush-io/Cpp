@@ -1,20 +1,28 @@
 #include <iostream>
 using namespace std;
 
-int subsum(int *arr, int n, int k)
+void subsum(int *arr, int n, int k)
 {
+    int si = 0;
+    int ei = 0;
     int sum = 0;
-    int res = INT_MIN;
-    for(int i = 0 ; i < n ; i++)
+    for (int i = 0; i < n; i++)
     {
-        sum += arr[i];
-        for(int j = i+1 ; j < n ; j++)
+        if (sum < k)
         {
-            sum += arr[j];
-            res = max(res,sum);
+            ei++;
+            sum += arr[ei];
         }
+        else if(sum > k)
+        {
+            si++;
+            sum -= arr[si];
+            si++;
+        }
+        else if(sum == k)
+            break;
     }
-    return res;
+    cout << si << " to " << ei << endl;
 }
 
 int main()
@@ -27,6 +35,6 @@ int main()
     {
         cin >> arr[i];
     }
-    int sum = subsum(arr, n, k);
-    cout << sum << endl;
+    subsum(arr, n, k);
+    return 0;
 }
