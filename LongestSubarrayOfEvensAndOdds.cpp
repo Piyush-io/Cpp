@@ -1,35 +1,28 @@
 #include <iostream>
 using namespace std;
 
-int longestsubarrayofalternatingoddandeven(int *arr , int n)
+int longestsubarrayofalternatingoddandeven(int *arr, int n)
 {
-    int count = 1;
-    int res = count;
-    int previous = 0;
-    if(arr[0] % 2 == 0)
+    int count = 1; //[10,12,14,7,8]
+    int res = 1;
+    int previous = (arr[0] % 2 == 0) ? 0 : 1;
+    cout << previous;
+    int sum =0;
+    for (int i = 0; i < n; i++)
     {
-        previous = 0;
-    }
-    for (int i = 1; i < n; i++)
-    {
-        if(previous == 0)
-        {
-            if(arr[i] % 2 != 0)
-                count++;
-            else
-                res = max(res , count);
-                count = 1;
-                previous = 0;
+        if (arr[i] % 2 == 0 && arr[i + 1] % 2 != 0) {
+            count++;
         }
-        else if(previous == 1)
-        {
-           if(arr[i] % 2 == 0)
-                count++;
-            else
-                res = max(res , count);
-                count = 1;
-                previous = 0;
+        if (arr[i] % 2 != 0 && arr[i + 1] % 2 == 0) {
+            count++;
         }
+        if (arr[i] % 2 == 0 && arr[i + 1] % 2 == 0) {
+            count = 1;
+        }
+        if (arr[i] % 2 != 0 && arr[i + 1] % 2 != 0) {
+            count = 1;
+        }
+        res = max(res, count);
     }
     return res;
 }
