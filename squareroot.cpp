@@ -1,36 +1,35 @@
 #include <iostream>
 using namespace std;
 
+int floorSqrt(int x)
+{ // Base cases
+    if (x == 0 || x == 1)
+        return x;
 
-long long sqrtof(long long n)
-{
-    long long low = 0;
-    long long high = n/2;
-    long long res;
-    while (low<=high)
+    int start = 1, end = x / 2, ans;
+    while (start <= end)
     {
-        long long mid = low+(high-low)/2;
-        res = mid*mid;
-        if(res == n)
-        {
+        int mid = (start + end) / 2;
+
+        // If x is a perfect square
+        int sqr = mid * mid;
+        if (sqr == x)
             return mid;
-        }
-        else if(res > n)
+
+        if (sqr <= x)
         {
-            high = mid-1;
+            start = mid + 1;
+            ans = mid;
         }
-        else
-        {
-            low = mid+1;
-            res = mid;
-        }
+        else // If mid*mid is greater than x
+            end = mid - 1;
     }
-    return res;
+    return ans;
 }
 
 int main()
-{
+{6hh
     long long n;
     cin >> n;
-    cout << sqrtof(n) << endl;
+    cout << floorSqrt(n) << endl;
 }
