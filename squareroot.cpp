@@ -28,7 +28,7 @@ int floorSqrt(int x)
 }
 
 int main()
-{6hh
+{
     long long n;
     cin >> n;
     cout << floorSqrt(n) << endl;
