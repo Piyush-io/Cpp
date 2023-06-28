@@ -1,6 +1,5 @@
 //{ Driver Code Starts
 #include <iostream>
-#include <vector>
 using namespace std;
 
 // } Driver Code Ends
@@ -10,32 +9,31 @@ public:
     // Function to find a continuous sub-array which adds up to a given number.
     vector<int> subarraySum(vector<int> arr, int n, long long s)
     {
-        int l = 0;
-        int r = 1;
-        int sum = arr[l];
-        vector<int> v;
-        while (r > l && r < n)
+        vector<int> ans;
+        int start = 0;
+        long long sum = 0;
+        if (s == 0)
         {
-            if (sum == s)
+            ans.push_back(-1);
+            return ans;
+        }
+        for (int i = 0; i < n; i++)
+        {
+            sum += arr[i];
+            while (sum > s)
             {
-                v.push_back(l + 1);
-                v.push_back(r);
-                return v;
+                sum -= arr[start];
+                start += 1;
             }
-
-            else if (sum < s)
+            if (s == sum)
             {
-                sum += arr[r];
-                r++;
-            }
-            else
-            {
-                sum -= arr[l];
-                l++;
+                ans.push_back(start + 1);
+                ans.push_back(i + 1);
+                return ans;
             }
         }
-        v.push_back(-1);
-        return v;
+        ans.push_back(-1);
+        return ans;
     }
 };
 
@@ -67,4 +65,4 @@ int main()
     }
     return 0;
 }
-// iostrea
+// } Driver Code Ends
