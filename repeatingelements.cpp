@@ -7,7 +7,6 @@ using namespace std;
 
 int repeatingelement(int *arr, int n)
 {   
-
     bool *A = new bool[n-1];
     memset(A,false,n-1);
     for(int i = 0 ; i < n ; i++)
