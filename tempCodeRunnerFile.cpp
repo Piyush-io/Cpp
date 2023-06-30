@@ -1,0 +1,3 @@
+res = arr[i];
+                count++;
+            
