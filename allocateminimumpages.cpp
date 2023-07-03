@@ -1,7 +1,18 @@
-#include <iostream>
+//{ Driver Code Starts
+// Initial template for C++
+#include<iostream>
+#include<numeric>
 using namespace std;
 
-bool feasable(int *arr, int n, int k, int pans)
+
+// } Driver Code Ends
+//User function template in C++
+
+class Solution 
+{
+    public:
+    //Function to find minimum number of pages.
+    bool feasable(int *arr, int n, int k, int pans)
 {
     int count = 1;
     int sum = 0;
@@ -23,30 +34,25 @@ bool feasable(int *arr, int n, int k, int pans)
             sum += arr[i];
         }
     }
-    if (count == k)
+    if (count <= k)
     {
         return true;
     }
 }
 
-int minPages(int *arr, int n, int k)
+int findPages(int *arr, int n, int k)
 {
     if (n < k)
     {
         return -1;
     }
 
-    int high = 0;
-    int low = INT_MIN;
-    for (int i = 0; i < n; i++)
-    {
-        high += arr[i];
-        low = max(arr[i], low);
-    }
+    long long high = accumulate(arr , arr+n ,0);
+    int low = *max_element(arr,arr+n);
     int res = -1;
     while (low <= high)
     {
-        int possibleans = (low + high) / 2;
+        long long possibleans = (low + high) / 2;
         if (feasable(arr, n, k, possibleans))
         {
             res = possibleans;
@@ -59,12 +65,26 @@ int minPages(int *arr, int n, int k)
     }
     return res;
 }
+};
 
-int main()
-{
-    int arr[] = {10, 20, 10, 30};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 2;
+//{ Driver Code Starts.
 
-    cout << minPages(arr, n, k);
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int A[n];
+        for(int i=0;i<n;i++){
+            cin>>A[i];
+        }
+        int m;
+        cin>>m;
+        Solution ob;
+        cout << ob.findPages(A, n, m) << endl;
+    }
+    return 0;
 }
+
+// } Driver Code Ends
