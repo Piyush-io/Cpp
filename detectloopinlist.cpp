@@ -69,7 +69,7 @@ public:
         Node *slow = head, *fast = head;
         if (head->next == NULL)
             return 0;
-        while (fast->next && fast->next->next)
+        while (fast != NULL && fast->next != NULL)
         {
             slow = slow->next;
             fast = fast->next->next;
