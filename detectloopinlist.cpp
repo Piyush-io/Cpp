@@ -77,7 +77,7 @@ public:
                 return 1;
         }
         return 0;*/
-
+        // using a hashmap
         unordered_set<Node *> s;
         for (Node *curr = head; curr->next != NULL; curr = curr->next)
         {
