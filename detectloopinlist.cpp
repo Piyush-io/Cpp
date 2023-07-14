@@ -1,7 +1,8 @@
 //{ Driver Code Starts
 // Initial template code for C++
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_set>
 using namespace std;
 
 struct Node
@@ -76,6 +77,20 @@ public:
                 return 1;
         }
         return 0;*/
+
+        unordered_set<Node *> s;
+        for (Node *curr = head; curr->next != NULL; curr = curr->next)
+        {
+            if (s.find(curr->next) != s.end())
+            {
+                return true;
+            }
+            else
+            {
+                s.insert(curr->next);
+            }
+        }
+        return false;
     }
 };
 
