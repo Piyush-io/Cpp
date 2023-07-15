@@ -64,6 +64,7 @@ public:
 
         return false;*/
 
+        /*
         Node *slow = head, *fast = head;
         if (head->next == NULL)
             return 0;
@@ -74,7 +75,7 @@ public:
             if (slow == fast)
                 return 1;
         }
-        return 0;
+        return 0;*/
     }
 };
 
