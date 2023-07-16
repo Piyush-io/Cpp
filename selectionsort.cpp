@@ -5,7 +5,7 @@ int main()
 {
     int arr[] = {5, 18, 2, 3, 6, 3};
     int n = 6;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n-1; i++)
     {   
         int min_ind = i;
         for (int j = i+1; j < n; j++)
