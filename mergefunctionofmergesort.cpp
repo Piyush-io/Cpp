@@ -23,17 +23,19 @@ void mergearray(int *arr, int low, int mid, int high)
     int i = 0;
     int j = 0;
     int k = low;
+    int count = 0;
     while (i < N && j < n)
     {
         if (a1[i] <= a2[j])
         {
-            arr[k++] = a1[i];
+            arr[k++] = a1[i]; 
             i++;
         }
 
         else
         {
             arr[k++] = a2[j];
+            count+= n-i;
             j++;
         }
     }
@@ -47,6 +49,7 @@ void mergearray(int *arr, int low, int mid, int high)
         arr[k++] = a2[j];
         j++;
     }
+    cout << count << endl;
 }
 
 int main()
