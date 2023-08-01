@@ -14,7 +14,7 @@ void merging(interval arr[], int n)
     sort(arr, arr + n, mycomp);
 
     int res = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
         if (arr[res].end >= arr[i].st)
         {
@@ -34,6 +34,6 @@ void merging(interval arr[], int n)
 
 int main()
 {
-    struct interval arr[] = {{6, 8}, {1, 9}, {2, 4}, {4, 7}};
+    struct interval arr[] = {{7,9}, {6,10}, {4,5}, {1,3} ,{2,4}};
     merging(arr, 4);
 }
