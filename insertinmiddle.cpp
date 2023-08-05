@@ -163,7 +163,7 @@ Node* insertInMiddle(Node* head, int x)
     }
 
     Node* slow = head;
-    Node* fast = head->next;
+    Node* fast = head->next;  //this would ensure that slow points to node just before middle
 
     while (fast != NULL && fast->next != NULL)
     {
