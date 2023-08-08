@@ -25,7 +25,7 @@ void display(Node *head)
     cout << endl;
 }
 
-Node *FindMiddle(Node *head);
+Node *FindMiddle(Node *head); // function to find the middle
 
 int main()
 {
