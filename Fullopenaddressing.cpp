@@ -57,7 +57,7 @@ public:
 
         int i = hash(key);
 
-        while (i != -1 && i != -2 && arr[i] != -1)
+        while (arr[i] != -1 && arr[i] != -2 && arr[i] != -1)
         {
             i = (i + 1) % HashSize;
         }
@@ -81,7 +81,7 @@ public:
         cout << "DELETING " << key << " NOW..........." << endl;
         int hk = hash(key);
         int i = hk;
-        while (i != -1 && arr[i] != -1)
+        while (arr[i] != -1)
         {
             if (arr[i] == key)
             {
@@ -99,15 +99,32 @@ public:
         cout << "Not Present" << endl;
         return false;
     }
+
+    void displayTable()
+    {
+        cout << "Hash Table Contents:" << endl;
+        cout << "Index\tValue" << endl;
+        cout << "-----------------" << endl;
+
+        for (int i = 0; i < HashSize; i++)
+        {
+            if (arr[i] != -1 && arr[i] != -2)
+            {
+                cout << i << "\t" << arr[i] << endl;
+            }
+        }
+    }
 };
 
 int main()
 {
     Myhash H1 = Myhash(5);
     H1.insert(53);
+    H1.displayTable();
     H1.search(53);
     H1.erase(52);
+    H1.displayTable();
     H1.erase(53);
-
+    H1.displayTable();
     return 0;
 }
