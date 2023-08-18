@@ -10,7 +10,7 @@ public:
     // Complete this function
     // Function to sort the array according to frequency of elements.
     vector<int> sortByFreq(int arr[], int n)
-    {
+    { 
         map<int, int> countA;
         vector<int> res;
         for (int i = 0; i < n; i++)
