@@ -103,7 +103,8 @@
         "unordered_set": "cpp",
         "valarray": "cpp",
         "random": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "noofbinarysubarrayswithgivensumzero": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang",
     "C_Cpp.errorSquiggles": "disabled"
