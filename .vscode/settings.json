@@ -104,7 +104,8 @@
         "valarray": "cpp",
         "random": "cpp",
         "ranges": "cpp",
-        "noofbinarysubarrayswithgivensumzero": "cpp"
+        "noofbinarysubarrayswithgivensumzero": "cpp",
+        "filesystem": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang",
     "C_Cpp.errorSquiggles": "disabled"

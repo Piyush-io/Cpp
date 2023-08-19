@@ -12,7 +12,29 @@ public:
     // Function to return length of longest subsequence of consecutive integers.
     int findLongestConseqSubseq(int arr[], int N)
     {
-        // Your code here
+        set<int> distinctelements;
+        for (int i = 0; i < N; i++)
+        {
+            distinctelements.insert(arr[i]);
+        }
+
+        int res = 0;
+        int count = 0;
+        for (const auto &i : distinctelements)
+        {
+            if (distinctelements.find(i - 1) == distinctelements.end())
+            {
+                int num = i;
+                int count = 0;
+                while (distinctelements.find(num) != distinctelements.end())
+                {
+                    count++;
+                    num++;
+                }
+                res = max(res, count);
+            }
+        }
+        return res;
     }
 };
 
