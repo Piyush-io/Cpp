@@ -11,7 +11,7 @@ map<int,int> mp; // mp hold 1 to those number which consists of only 1, 2, 3 as 
 
 //Function to find all the numbers with only 1,2 and 3 in their digits.
 void findAll() {
-    // what the fuck is this question;
+    
 }
 
 //{ Driver Code Starts.
