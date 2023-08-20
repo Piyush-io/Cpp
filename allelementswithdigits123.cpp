@@ -10,8 +10,24 @@ map<int,int> mp; // mp hold 1 to those number which consists of only 1, 2, 3 as 
 //User function template for C++
 
 //Function to find all the numbers with only 1,2 and 3 in their digits.
-void findAll() {
+void solve(string s){
+    int value= stoi(s); // converting string into integer value
+    if(value>1e6){
+        return;         //base case 
+                    // if our value exceeds 10^6 than return 
+    }
+    mp[value]++;    // here value will be incrementing 
+                // values will be combinations of 1s, 2ds,3s
     
+    solve(s+'1');       //adding 1s to the given number i.e 11,111,1111,11111 etc
+    solve(s+'2');       //adding 2s to the given number i.e 12,122,1222 etc 
+    solve(s+'3');       // same for this as well
+}
+
+void findAll() {
+    solve("1");  // passing 1
+    solve("2"); // passing 2
+    solve("3"); //passing 3
 }
 
 //{ Driver Code Starts.
