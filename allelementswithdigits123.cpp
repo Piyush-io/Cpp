@@ -11,7 +11,7 @@ map<int,int> mp; // mp hold 1 to those number which consists of only 1, 2, 3 as 
 
 //Function to find all the numbers with only 1,2 and 3 in their digits.
 void solve(string s){
-    int value= stoi(s); // converting string into integer value
+    int value= to_integer(s); // converting string into integer value
     if(value>1e6){
         return;         //base case 
                     // if our value exceeds 10^6 than return 
