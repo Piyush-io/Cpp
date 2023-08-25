@@ -2,7 +2,7 @@
 // Initial Template for C++
 
 #include <iostream>
-#include <unordered_map>
+#include <map>
 using namespace std;
 
 // User function Template for C++
@@ -13,23 +13,28 @@ public:
     // Function to find repeated character whose first appearance is leftmost.
     int repeatedCharacter(string s)
     {
-        unordered_map<char, int> pos;
+        int n = 256;
+        int pos[n];
+        memset(pos, -1, sizeof(pos));
+        int res = INT_MAX;
         for (int i = 0; i < s.length(); i++)
         {
-            if (pos.find(s[i]) == pos.end())
+            if (pos[s[i]] == -1)
             {
-                pos[s[i]]++;
+                pos[s[i]] = i;
+            }
+            else
+            {
+                res = min(pos[s[i]], res);
             }
         }
 
-        for (int i = 0; i < s.length(); i++)
+        if (res == INT_MAX)
         {
-            if (pos[s[i]] > 1)
-            {
-                return pos[s[i]];
-            }
+            return -1;
         }
-        return -1;
+        else
+            return res;
     }
 };
 
