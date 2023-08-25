@@ -1,5 +1,6 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
+#include <iostream>
+#include <map>
 using namespace std;
 
 // } Driver Code Ends
@@ -25,10 +26,6 @@ public:
         for (int i = 0; i < a.length(); i++)
         {
             count1[a[i]]++;
-        }
-
-        for (int i = 0; i < b.length(); i++)
-        {
             count2[b[i]]++;
         }
 
