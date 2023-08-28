@@ -18,16 +18,31 @@ public:
     {
         int count = 1;
         int res = 0;
+        char to_check = a[0];
+        cout << "Temp character : " << to_check << endl;
         for (int i = 1; i < a.length(); i++)
         {
-            if (a[i] == a[i - 1])
+            if (to_check == a[i])
             {
                 count++;
-            }
-            if (count == 3)
+                cout << "Count now : " << count << endl;
+                if (count == 3)
+                {
+                    cout << "IN NESTED IF" << endl;
+                    res++;
+                    count = 1;
+                    cout << "Count now : " << count << endl;
+
+                    to_check = a[i];
+                    cout << "Temp character : " << to_check << endl;
+                }
+                        }
+            else
             {
-                count = 0;
-                res++;
+                cout << "IN ELSE" << endl;
+                to_check = a[i];
+                cout << "Temp character : " << to_check << endl;
+                count = 1;
             }
         }
         return res;
