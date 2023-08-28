@@ -1,39 +1,51 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
-#define br char xx; cin>>xx; cout<<xx<<endl;
+#include <iostream>
+#define br     \
+    char xx;   \
+    cin >> xx; \
+    cout << xx << endl;
 #define lli long long int
 using namespace std;
 
-
 // } Driver Code Ends
-
 
 class Solution
 {
-    public:
-    //Function to find minimum number of characters which Ishaan must insert  
-    //such that string doesn't have three consecutive same characters.
-    int modified (string a)
+public:
+    // Function to find minimum number of characters which Ishaan must insert
+    // such that string doesn't have three consecutive same characters.
+    int modified(string a)
     {
-        int count = 0;
+        int count = 1;
         int res = 0;
-        for(int i = 0 ; i < a.length() ; i++)
+        for (int i = 1; i < a.length(); i++)
         {
-            
+            if (a[i] == a[i - 1])
+            {
+                count++;
+            }
+            if (count == 3)
+            {
+                count = 0;
+                res++;
+            }
         }
+        return res;
     }
 };
 
 //{ Driver Code Starts.
 
-int main(){
+int main()
+{
     int t;
-    cin>>t;
+    cin >> t;
     string a;
-    while(t--){
-        cin>>a;
+    while (t--)
+    {
+        cin >> a;
         Solution obj;
-        cout<<obj.modified(a)<<endl;
+        cout << obj.modified(a) << endl;
     }
     return 0;
 }
