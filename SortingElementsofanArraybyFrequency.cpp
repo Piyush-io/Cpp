@@ -28,6 +28,7 @@ public:
                 return a.first < b.first; // Smaller number comes first for equal frequencies
             }
             return a.second > b.second; });
+            
         for (const auto &entry : freqPairs)
         {
             int freq = entry.second;
