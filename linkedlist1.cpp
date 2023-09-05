@@ -14,7 +14,7 @@ struct node // structure of name node (not using class becasue of longer code re
 
 void printLinkedList(node *head)  // function to print the linked list
 {
-    node *current = head;
+    node *current = head; 
     while (current != NULL)
     {
         cout << current->datapoint << " ";
@@ -25,7 +25,8 @@ void printLinkedList(node *head)  // function to print the linked list
 
 int main()
 {
-    node * head = new node(10);  // pointer of type struct node pointing to a datapoint
+    node * head = new node(10);  // pointer of type struct node pointing to a datapoint 
+    // i still dont get the above part
     head->next = new node(20);  // giving address to head node of next node
     head->next->next = new node(30);
     printLinkedList(head);
