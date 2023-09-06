@@ -105,7 +105,8 @@
         "random": "cpp",
         "ranges": "cpp",
         "noofbinarysubarrayswithgivensumzero": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "countingnodes": "c"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang",
     "C_Cpp.errorSquiggles": "disabled"
