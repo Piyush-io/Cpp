@@ -12,21 +12,19 @@ struct node // structure of name node (not using class becasue of longer code re
     }
 };
 
-void printLinkedList(node *head)  // function to print the linked list
+void printLinkedList(node *node)  // function to print the linked list
 {
-    node *current = head; 
-    while (current != NULL)
-    {
-        cout << current->datapoint << " ";
-        current = current->next;
-    }
-    cout << endl;
+    while (node != NULL) 
+    { 
+        cout<<node->datapoint<<" "; 
+        node = node->next; 
+    } 
 }
 
 int main()
 {
-    node * head = new node(10);  // pointer of type struct node pointing to a datapoint 
-    // i still dont get the above part
+    node * head = new node(10);  // head pointer to point to dynamically allocated memory of type "node" that is a structure
+    //we node is also a constructor, so when writing new node(10) it create a structure with datapoint 10 and next pointer set to null 
     head->next = new node(20);  // giving address to head node of next node
     head->next->next = new node(30);
     printLinkedList(head);
