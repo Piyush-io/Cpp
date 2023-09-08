@@ -12,7 +12,7 @@ struct node // structure of name node (not using class becasue of longer code re
     }
 };
 
-void recursivedisplay(node *node) // function to print the linked list
+void recursivedisplay(node *node) // function to print the linked list recursively
 {
 
     if (node == NULL)
