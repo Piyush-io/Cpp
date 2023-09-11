@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// still need to do
+
 struct node // structure of name node (not using class becasue of longer code required)
 {
     int datapoint; // the part of memory that will store the value of that node
