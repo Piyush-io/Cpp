@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// still need to do
+// will start tomorrow at 4
 
 struct node // structure of name node (not using class becasue of longer code required)
 {
