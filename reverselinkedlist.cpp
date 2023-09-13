@@ -29,6 +29,8 @@ void printLinkedList(node *node) // function to print the linked list
         cout << node->datapoint << " ";
         node = node->next;
     }
+
+    cout << endl;
 }
 
 void reverselist(node *&head)
@@ -37,6 +39,7 @@ void reverselist(node *&head)
     {
         return;
     }
+
     node *prev = NULL;
     node *curr = head;
     while (curr != NULL)
@@ -44,9 +47,9 @@ void reverselist(node *&head)
         prev = curr->prev;
         curr->prev = curr->next;
         curr->next = prev;
-        curr = curr->next;
+        curr = curr->prev;
     }
-    head = prev;
+    head = prev->prev;
 }
 
 int main()
@@ -58,10 +61,8 @@ int main()
     second->prev = head;
     second->next = third;
     third->prev = second;
-    node *end = third;
+    third->next = NULL;
     reverselist(head);
     printLinkedList(head);
     delete head;
-    delete second;
-    delete third;
 }
