@@ -5,20 +5,22 @@ struct Node
 {
     int data;
     Node *next;
+    Node(int x)
+    {
+        data = x;
+        next = NULL;
+    }
 };
 
 Node *createNode(int value)
 {
-    Node *newNode = new Node;
-    newNode->data = value;
-    newNode->next = nullptr;
+    Node *newNode = new Node(value);
     return newNode;
 }
 
 Node *insert(Node *head, int value)
 {
     Node *newNode = createNode(value);
-
     if (head == nullptr)
     {
         newNode->next = newNode; // Point to itself for circular behavior
