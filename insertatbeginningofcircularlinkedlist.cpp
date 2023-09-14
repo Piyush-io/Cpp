@@ -15,6 +15,7 @@ Node *createNode(int value)
 }
 
 // this function takes O(N) time to finish inserting at the beginning
+/*
 Node *insertatbeginning(Node *head, int value)
 {
     Node *newNode = createNode(value);
@@ -33,6 +34,27 @@ Node *insertatbeginning(Node *head, int value)
             curr = curr->next;
         }
         curr->next = newNode;
+        return newNode;
+    }
+} */
+
+// this function takes O(1) time
+Node *insertatbeginning(Node *head, int value)
+{
+    Node *newNode = createNode(value);
+
+    if (head == nullptr)
+    {
+        newNode->next = newNode; // Point to itself for circular behavior
+        return newNode;
+    }
+    else
+    {
+        newNode->next = head->next;
+        head->next = newNode;
+        int t = newNode->data;
+        newNode->data = head->data;
+        head->data = t;
         return newNode;
     }
 }
@@ -63,6 +85,7 @@ int main()
     head = insertatbeginning(head, 20);
     head = insertatbeginning(head, 30);
     // Display the circular list
+    
     display(head);
 
     return 0;
