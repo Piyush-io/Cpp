@@ -15,6 +15,7 @@ Node *createNode(int value)
 }
 
 // this function takes O(N) time to finish inserting at the beginning
+/*
 Node *insertatend(Node *head, int value)
 {
     Node *newNode = createNode(value);
@@ -35,11 +36,10 @@ Node *insertatend(Node *head, int value)
         curr->next = newNode;
         return head;
     }
-}
+} */
 
 // this function takes O(1) time
-/*
-Node *insertatbeginning(Node *head, int value)
+Node *insertatend(Node *head, int value)
 {
     Node *newNode = createNode(value);
 
@@ -55,9 +55,10 @@ Node *insertatbeginning(Node *head, int value)
         int t = newNode->data;
         newNode->data = head->data;
         head->data = t;
-        return newNode;
+        head = head->next;
+        return head;
     }
-} */
+}
 
 void display(Node *head)
 {
