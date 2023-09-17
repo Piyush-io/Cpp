@@ -33,7 +33,7 @@ public:
             newNode->prev = head->prev;
             head->prev->next = newNode;
             head->prev = newNode;
-            head = newNode;
+            head = newNode;  // remove this if you need to insert at the end
         }
     }
 
