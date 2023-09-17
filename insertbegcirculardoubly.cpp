@@ -1,28 +1,34 @@
 #include <iostream>
 
-struct Node {
+struct Node
+{
     int data;
-    Node* next;
-    Node* prev;
-    
+    Node *next;
+    Node *prev;
+
     Node(int value) : data(value), next(nullptr), prev(nullptr) {}
 };
 
-class CircularDoublyLinkedList {
+class CircularDoublyLinkedList
+{
 private:
-    Node* head;
+    Node *head;
 
 public:
     CircularDoublyLinkedList() : head(nullptr) {}
 
     // Function to insert a node at the beginning of the list
-    void insertAtBeginning(int value) {
-        Node* newNode = new Node(value);
-        if (!head) {
+    void insertAtBeginning(int value)
+    {
+        Node *newNode = new Node(value);
+        if (head == NULL)
+        {
             head = newNode;
             head->next = head;
             head->prev = head;
-        } else {
+        }
+        else
+        {
             newNode->next = head;
             newNode->prev = head->prev;
             head->prev->next = newNode;
@@ -32,14 +38,17 @@ public:
     }
 
     // Function to display the circular doubly linked list
-    void display() {
-        if (!head) {
+    void display()
+    {
+        if (!head)
+        {
             std::cout << "List is empty." << std::endl;
             return;
         }
 
-        Node* current = head;
-        do {
+        Node *current = head;
+        do
+        {
             std::cout << current->data << " ";
             current = current->next;
         } while (current != head);
@@ -48,7 +57,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     CircularDoublyLinkedList list;
 
     // Insert elements at the beginning
