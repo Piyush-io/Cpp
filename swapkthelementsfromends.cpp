@@ -87,8 +87,6 @@ int main()
 }
 
 // } Driver Code Ends
-
-#include <vector>
 // User function Template for C++
 
 /* Linked List Node structure
