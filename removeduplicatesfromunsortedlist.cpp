@@ -22,7 +22,6 @@ void print(Node *root)
         temp = temp->next;
     }
 }
-// what the actual fuck is happeneing
 // } Driver Code Ends
 /*
 The structure of linked list is the following
