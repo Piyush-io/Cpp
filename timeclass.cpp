@@ -1,35 +1,41 @@
 #include <iostream>
 using namespace std;
 
-class Time {
+class Time
+{
 private:
     int hours;
     int minutes;
     int seconds;
-    
+
 public:
-    Time(int h, int m, int s) {
+    Time(int h = 0, int m = 0, int s = 0)
+    {
         hours = h;
         minutes = m;
         seconds = s;
     }
 
-    void display() {
+    void display()
+    {
         cout << "Time: " << hours << " hours " << minutes << " minutes " << seconds << " seconds" << endl;
     }
 
-    Time addTime(const Time& t2) {
+    Time addTime(const Time &t2)
+    {
         Time sum;
         sum.hours = hours + t2.hours;
         sum.minutes = minutes + t2.minutes;
         sum.seconds = seconds + t2.seconds;
 
-        if (sum.seconds >= 60) {
+        if (sum.seconds >= 60)
+        {
             sum.minutes += sum.seconds / 60;
             sum.seconds %= 60;
         }
 
-        if (sum.minutes >= 60) {
+        if (sum.minutes >= 60)
+        {
             sum.hours += sum.minutes / 60;
             sum.minutes %= 60;
         }
@@ -38,9 +44,10 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     Time t1(2, 45, 30);
-    Time t2(1, 30, 45); 
+    Time t2(1, 30, 45);
 
     t1.display();
     t2.display();

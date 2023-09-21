@@ -21,9 +21,10 @@ public:
         cout << "Enter Branch: ";
         cin >> branch;
 
-        cout << "Enter Marks in 5 Subjects: ";
-        for (int i = 0; i < 5; ++i)
+        cout << "Enter Marks in 5 Subjects: " << endl;
+        for (int i = 0; i < 5; i++)
         {
+            cout << "Marks in subject " << i + 1 << ": ";
             cin >> marks[i];
         }
     }
@@ -51,15 +52,14 @@ public:
 int main()
 {
     Student students[5];
-
-    cout << "Enter Data for 5 Students:\n";
+    cout << "Enter Data for 5 Students:" << endl;
     for (int i = 0; i < 5; ++i)
     {
-        cout << "\nStudent " << i + 1 << ":\n";
+        cout << "Student " << i + 1 << ":" << endl;
         students[i].getData();
     }
 
-    cout << "\nStudents with 70% or higher percentage:\n";
+    cout << "Students with 70% or higher percentage:" << endl;
     for (int i = 0; i < 5; ++i)
     {
         students[i].displayData();
