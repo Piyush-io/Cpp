@@ -13,15 +13,13 @@ public:
     void getData()
     {
         cout << "Enter Student Name: ";
-        cin.ignore();
-        getline(cin, name);
+        cin >> name;
 
         cout << "Enter Roll Number: ";
         cin >> rollNumber;
 
         cout << "Enter Branch: ";
-        cin.ignore();
-        getline(cin, branch);
+        cin >> branch;
 
         cout << "Enter Marks in 5 Subjects: ";
         for (int i = 0; i < 5; ++i)
