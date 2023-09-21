@@ -46,8 +46,8 @@ public:
 
 int main()
 {
-    Time t1(2, 45, 30);
-    Time t2(1, 30, 45);
+    Time t1(2, 13, 22);
+    Time t2(5, 40, 17);
 
     t1.display();
     t2.display();
