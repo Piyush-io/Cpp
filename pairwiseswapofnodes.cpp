@@ -25,6 +25,7 @@ struct Node {
     next = NULL;
   }
 };
+
 */
 // Function to swap elements pairwise.
 struct Node *pairwise_swap(struct Node *head)
