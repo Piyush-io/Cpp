@@ -21,7 +21,7 @@ public:
         cout << "Time: " << hours << " hours " << minutes << " minutes " << seconds << " seconds" << endl;
     }
 
-    Time addTime(const Time &t2)
+    Time addTime(Time t2)
     {
         Time sum;
         sum.hours = hours + t2.hours;
