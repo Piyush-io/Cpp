@@ -15,7 +15,7 @@ class LRUCache
         int key;
         int value;
         Node *next;
-        Node *prev;
+        Node *prev;   
         Node(int x, int y) 
         {
             key = x;
