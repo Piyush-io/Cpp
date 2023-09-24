@@ -30,63 +30,85 @@ class Solution
 {
 public:
     // Function to sort the given linked list using Merge Sort.
-    Node *sortedMerge(Node *a, Node *b)
+    Node *get_mid(Node *head)
     {
-        if (a == NULL)
-            return b;
-        if (b == NULL)
-            return a;
-        Node *head = NULL, *tail = NULL;
-        if (a->data <= b->data)
+        Node *slow = head;
+        Node *fast = head->next;
+
+        while (fast != NULL and fast->next != NULL)
         {
-            head = tail = a;
-            a = a->next;
+            fast = fast->next->next;
+            slow = slow->next;
         }
-        else
+        return slow;
+    }
+    // to merge two sorted LL
+    Node *merge_LL(Node *left, Node *right)
+    {
+        if (left == NULL)
         {
-            head = tail = b;
-            b = b->next;
+            return right;
         }
-        while (a != NULL && b != NULL)
+        if (right == NULL)
         {
-            if (a->data <= b->data)
+            return left;
+        }
+        Node *final_head = new Node(-1);
+        Node *final_tail = final_head;
+
+        while (left != NULL and right != NULL)
+        {
+            if (left->data < right->data)
             {
-                tail->next = a;
-                tail = a;
-                a = a->next;
+                final_tail->next = left;
+                final_tail = left;
+                left = left->next;
             }
             else
             {
-                tail->next = b;
-                tail = b;
-                b = b->next;
+                final_tail->next = right;
+                final_tail = right;
+                right = right->next;
             }
         }
-        if (a == NULL)
+        while (left != NULL)
         {
-            tail->next = b;
+            final_tail->next = left;
+            final_tail = left;
+            left = left->next;
         }
-        else
+        while (right != NULL)
         {
-            tail->next = a;
+            final_tail->next = right;
+            final_tail = right;
+            right = right->next;
         }
-        return head;
+
+        final_head = final_head->next;
+        return final_head;
     }
-    Node *mergeKLists(Node *arr[], int K)
-    {
-        // Your code here
-        Node *head = NULL;
-        head = mergesort(head, arr[0]);
-        for (int i = 1; i < k; i++)
-        {
-            head = mergesort(head, arr[i]);
-        }
-        return head;
-    }
-    
+
+    // Function to sort the given linked list using Merge Sort.
     Node *mergeSort(Node *head)
     {
-        
+        // base case
+        if (head == NULL or head->next == NULL)
+        {
+            return head;
+        }
+
+        // to divide Linked list in two halves
+        Node *mid = get_mid(head);
+
+        Node *left = head;
+        Node *right = mid->next;
+        mid->next = NULL;
+
+        left = mergeSort(left);
+        right = mergeSort(right);
+        // merge the left and right LL
+        Node *result = merge_LL(left, right);
+        return result;
     }
 };
 
