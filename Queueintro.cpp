@@ -5,93 +5,99 @@ class Queue
 {
 
 private:
-    int *arr;
     int capacity;
     int front;
-    int rear;
-    int size;
+    struct Node
+    {
+        int data;
+        Node *next;
+        Node(int x)
+        {
+            data = x;
+            next = NULL;
+        }
+    };
+    Node *head;
+    Node *curr;
 
 public:
     Queue(int x)
     {
-        arr = new int[x];
         capacity = x;
-        front = -1;
-        rear = -1;
-        size = 0;
+        head = NULL;
+        curr = NULL;
+    }
+
+    ~Queue()
+    {
+        while (!isempty())
+        {
+            dequeue();
+        }
     }
     bool isempty()
     {
-        return size == 0;
-    }
-    bool isfull()
-    {
-        return size == capacity;
+        return head == NULL;
     }
 
     void enqueue(int x)
     {
-        if (isfull())
+        Node *newcustomer = new Node(x);
+        if (curr == NULL)
         {
-            cout << "Queue is full. Cannot enqueue." << endl;
+            head = curr = newcustomer;
             return;
         }
-
-        if (front == -1)
-        {
-            front = 0;
-            rear = 0;
-        }
-        else
-        {
-            rear = (rear + 1) % capacity; // Handle circular queue
-        }
-
-        arr[rear] = x;
-        size++;
+        curr->next = newcustomer;
+        curr = curr->next;
     }
 
     void dequeue()
     {
         if (isempty())
         {
-            cout << "Queue is empty Cannot enqueue." << endl;
+            cout << "Queue is empty. Cannot dequeue." << endl;
             return;
         }
-
-        cout << arr[front] << endl;
-
-        if (front == rear)
+        Node *temp = head;
+        cout << "Dequeued: " << head->data << endl;
+        head = head->next;
+        if (head == NULL)
         {
-            front = -1;
-            rear = -1;
+            curr = NULL;
         }
-        else
-        {
-            front = (front + 1) % capacity; // Handle circular queue
-        }
-        size--;
+
+        delete temp;
     }
 
-    int getfront()
+    void getfront()
     {
         if (isempty())
         {
-            return -1;
+            cout << "empty" << endl;
         }
         else
-            return front;
+            cout << head->data << endl;
     }
 
-    int getrear()
+    void getrear()
     {
         if (isempty())
         {
-            return -1;
+            cout << "Empty" << endl;
+            return;
         }
         else
         {
-            return (front + size + 1) % capacity;
+            cout << curr->data << endl;
+            return;
+        }
+    }
+    void deletequeue()
+    {
+        while (!isempty())
+        {
+            dequeue();
         }
     }
 };
@@ -100,5 +106,13 @@ int main()
 {
     Queue customers = Queue(5);
     customers.enqueue(5);
+    customers.enqueue(10);
+    customers.enqueue(20);
     customers.dequeue();
+    customers.enqueue(30);
+    customers.enqueue(40);
+    customers.dequeue();
+    customers.dequeue();
+    customers.dequeue();
+    customers.deletequeue();
 }
