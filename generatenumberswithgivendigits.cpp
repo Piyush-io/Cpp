@@ -8,14 +8,13 @@ int main()
     int n;
     cout << "How many numbers do you want with only thses digits:" << endl;
     cin >> n;
-    reqnumbers.push("5");
-    reqnumbers.push("6");
+    reqnumbers.push("1");
     for (int i = 0; i < n; i++)
     {
         string curr = reqnumbers.front();
         cout << curr << " " << endl;
         reqnumbers.pop();
-        reqnumbers.push(curr + "5");
-        reqnumbers.push(curr + "6");
+        reqnumbers.push(curr + "0");
+        reqnumbers.push(curr + "1");
     }
 }
