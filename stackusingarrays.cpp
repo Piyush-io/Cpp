@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class stack
@@ -6,61 +7,37 @@ class stack
 private:
     int size;
     int capacity;
-    int top;
-    int *arr;
+    vector<int> res; //  int *arr;
 
 public:
     stack(int x)
     {
         size = 0;
         capacity = x;
-        top = -1;
-        arr = new int[x];
     }
 
     bool isfull()
     {
-        return size == capacity - 1;
+        return res.size() == capacity;
     }
 
     void push(int x)
     {
-        if (isfull())
-        {
-            cout << "Limit reached, element cannot be added" << endl;
-            return;
-        }
-        top++;
-        arr[top] = x;
+        res.push_back(x);
         size++;
     }
 
     void pop()
     {
-        if (top == -1)
-        {
-            cout << "No element present" << endl;
-        }
-
-        cout << arr[top] << endl;
-        top--;
+        cout << res.back() << endl;
+        res.pop_back();
         size--;
     }
 
     void peek()
     {
-        if (top == -1)
-        {
-            cout << "No element present" << endl;
-        }
-
-        cout << "Top element is: " << arr[top] << endl;
+        cout << "Top element is: " << res.back() << endl;
         return;
-    }
-
-    ~stack()
-    {
-        delete[] arr;
     }
 };
 
