@@ -2,21 +2,20 @@
 #include <iostream>
 using namespace std;
 
-
 // } Driver Code Ends
 // design the class in the most optimal way
 
 class LRUCache
 {
-    private:
+private:
     class Node
-    {   
-        public:
+    {
+    public:
         int key;
         int value;
         Node *next;
-        Node *prev;   
-        Node(int x, int y) 
+        Node *prev;
+        Node(int x, int y)
         {
             key = x;
             value = y;
@@ -67,7 +66,7 @@ public:
             Node *newNode = new Node(key, res_value);
             addnode(newNode);
             cache[key] = newNode;
-    
+
             return res_value;
         }
         return -1;
@@ -76,15 +75,17 @@ public:
     // Function for storing key-value pair.
     void SET(int key, int value)
     {
-        if(cache.find(key) != cache.end()) {
-            Node* resnode = cache[key];
+        if (cache.find(key) != cache.end())
+        {
+            Node *resnode = cache[key];
             deletenode(resnode);
         }
-        else if(cache.size() == max_elements) {
+        else if (cache.size() == max_elements)
+        {
             cache.erase(tail->prev->key);
             deletenode(tail->prev);
         }
-        
+
         Node *newNode = new Node(key, value);
         addnode(newNode);
         cache[key] = newNode;
@@ -103,7 +104,7 @@ int main()
         int capacity;
         cin >> capacity;
         LRUCache *cache = new LRUCache(capacity);
-        
+
         int queries;
         cin >> queries;
         while (queries--)
