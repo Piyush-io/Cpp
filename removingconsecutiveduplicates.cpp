@@ -11,7 +11,7 @@ public:
     // Function to remove consecutive duplicates from given string using Stack.
     string removeConsecutiveDuplicates(string s)
     {
-        /*stack<char> res;
+        stack<char> res;
         if (s.empty())
         {
             return "";
@@ -43,18 +43,18 @@ public:
             res.pop();
         }
         reverse(resstirng.begin(), resstirng.end());
-        return resstirng;*/
-
-        string result = "";
-        for (char c : s)
-        {
-            // If the current character is different from the last character in result, add it to the result.
-            if (result.empty() || c != result.back())
+        return resstirng;
+        /*
+            string result = "";
+            for (char c : s)
             {
-                result.push_back(c);
+                // If the current character is different from the last character in result, add it to the result.
+                if (result.empty() || c != result.back())
+                {                        
+                    result.push_back(c);
+                }
             }
-        }
-        return result;
+            return result;*/
     }
 };
 
