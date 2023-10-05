@@ -1,6 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//write a function to reverse the nodes of the linked list
+//write a function to check if the singly linked list is a pallinrome or not
+//implement a queue using array and linked list
+
+
+// VIVA
+// what do you mean grounded linked list
+// explain multiply linked list
+// which type of memory allocation is reffered for linked list
+// is there any disadvantage of linked list
+
 stack<int> _push(int arr[], int n);
 
 void _getMinAtPop(stack<int> s);

@@ -1,91 +1,118 @@
-//{ Driver Code Starts
 #include <iostream>
 using namespace std;
 
-struct QueueNode
+class Queue
 {
-    int data;
-    QueueNode *next;
-};
 
-class MyQueue
-{
 private:
-    int arr[100005];
+    int capacity;
     int front;
-    int rear;
+    struct Node
+    {
+        int data;
+        Node *next;
+        Node(int x)
+        {
+            data = x;
+            next = NULL;
+        }
+    };
+    Node *head;
+    Node *curr;
 
 public:
-    MyQueue()
+    Queue(int x)
     {
-        front = 0;
-        rear = 0;
+        capacity = x;
+        head = NULL;
+        curr = NULL;
     }
-    void push(int);
-    int pop();
+
+    ~Queue()
+    {
+        while (!isempty())
+        {
+            dequeue();
+        }
+    }
+    bool isempty()
+    {
+        return head == NULL;
+    }
+
+    void enqueue(int x)
+    {
+        Node *newcustomer = new Node(x);
+        if (curr == NULL)
+        {
+            head = curr = newcustomer;
+            return;
+        }
+        curr->next = newcustomer;
+        curr = curr->next;
+    }
+
+    void dequeue()
+    {
+        if (isempty())
+        {
+            cout << "Queue is empty. Cannot dequeue." << endl;
+            return;
+        }
+        Node *temp = head;
+        cout << "Dequeued: " << head->data << endl;
+        head = head->next;
+        if (head == NULL)
+        {
+            curr = NULL;
+        }
+
+        delete temp;
+    }
+
+    void getfront()
+    {
+        if (isempty())
+        {
+            cout << "empty" << endl;
+        }
+        else
+            cout << head->data << endl;
+    }
+
+    void getrear()
+    {
+        if (isempty())
+        {
+            cout << "Empty" << endl;
+            return;
+        }
+        else
+        {
+            cout << curr->data << endl;
+            return;
+        }
+    }
+    void deletequeue()
+    {
+        while (!isempty())
+        {
+            dequeue();
+        }
+    }
 };
 
 int main()
 {
-    int T;
-    cin >> T;
-    while (T--)
-    {
-        MyQueue *sq = new MyQueue();
-
-        int Q;
-        cin >> Q;
-        while (Q--)
-        {
-            int QueryType = 0;
-            cin >> QueryType;
-            if (QueryType == 1)
-            {
-                int a;
-                cin >> a;
-                sq->push(a);
-            }
-            else if (QueryType == 2)
-            {
-                cout << sq->pop() << " ";
-            }
-        }
-        cout << endl;
-    }
-}
-
-// } Driver Code Ends
-
-/*
-
-The structure of the class is
-class MyQueue {
-private:
-    int arr[100005];
-    int front;
-    int rear;
-
-public :
-    MyQueue(){front=0;rear=0;}
-    void push(int);
-    int pop();
-};
- */
-
-// Function to push an element x in a queue.
-void MyQueue ::push(int x)
-{
-    arr[rear++] = x;
-}
-
-// Function to pop an element from queue and return that element.
-int MyQueue ::pop()
-{
-    if (front == rear)
-    {
-        return -1;
-    }
-
-    int n = arr[front++];
-    return n;
+    Queue customers = Queue(5);
+    customers.enqueue(5);
+    customers.enqueue(10);
+    customers.enqueue(20);
+    customers.dequeue();
+    customers.enqueue(30);
+    customers.enqueue(40);
+    customers.dequeue();
+    customers.dequeue();
+    customers.dequeue();
+    customers.deletequeue();
 }
