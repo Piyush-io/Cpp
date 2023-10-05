@@ -2,6 +2,8 @@
 #include <stack>
 using namespace std;
 
+//what the fuck is happening
+
 int getMaxArea(int arr[], int n)
 {
     stack<int> s;
