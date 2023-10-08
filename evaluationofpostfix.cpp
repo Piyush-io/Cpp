@@ -3,6 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// same can be done for prefix we just move from right to left.....
+
 // } Driver Code Ends
 class Solution
 {
