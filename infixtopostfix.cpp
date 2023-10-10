@@ -1,6 +1,7 @@
 //{ Driver Code Starts
 // C++ implementation to convert infix expression to postfix
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stack>
 using namespace std;
 
 // } Driver Code Ends
