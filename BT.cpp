@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// basic structure
 struct Node
 {
     int key;
