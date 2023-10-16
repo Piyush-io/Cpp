@@ -2,14 +2,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* A binary tree node has data, pointer to left child
-   and a pointer to right child */
+// Tree Node
 struct Node
 {
     int data;
-    struct Node *left;
-    struct Node *right;
+    Node *left;
+    Node *right;
 };
+vector<vector<int>> levelOrder(struct Node *node);
+
 // Utility function to create a new Tree Node
 Node *newNode(int val)
 {
@@ -19,64 +20,6 @@ Node *newNode(int val)
     temp->right = NULL;
 
     return temp;
-}
-
-// } Driver Code Ends
-/* A binary tree Node
-
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
-
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
- */
-
-class Solution
-{
-public:
-    // Function to return the level order traversal of a tree.
-    vector<int> levelOrder(Node *node)
-    {
-        queue<Node *> ele;
-        vector<int> ans;
-        if (node == NULL)
-            return ans;
-        ele.push(node);
-        while (ele.empty() == false)
-        {
-            Node *curr = ele.front();
-            ele.pop();
-            ans.push_back(curr->data);
-            if (curr->left != NULL)
-                ele.push(curr->left);
-            if (curr->right != NULL)
-                ele.push(curr->right);
-        }
-
-        return ans;
-    }
-};
-
-//{ Driver Code Starts.
-
-/* Helper function to test mirror(). Given a binary
-   search tree, print out its data elements in
-   increasing sorted order.*/
-void inOrder(struct Node *node)
-{
-    if (node == NULL)
-        return;
-
-    inOrder(node->left);
-    printf("%d ", node->data);
-
-    inOrder(node->right);
 }
 
 // Function to Build Tree
@@ -94,6 +37,9 @@ Node *buildTree(string str)
     for (string str; iss >> str;)
         ip.push_back(str);
 
+    // for(string i:ip)
+    //     cout<<i<<" ";
+    // cout<<endl;
     // Create the root of the tree
     Node *root = newNode(stoi(ip[0]));
 
@@ -146,7 +92,6 @@ Node *buildTree(string str)
     return root;
 }
 
-/* Driver program to test size function*/
 int main()
 {
     int t;
@@ -156,13 +101,62 @@ int main()
         string s;
         getline(cin, s);
         Node *root = buildTree(s);
-        Solution ob;
-        vector<int> res = ob.levelOrder(root);
-        for (int i : res)
-            cout << i << " ";
+
+        vector<vector<int>> vec = levelOrder(root);
+        for (vector<int> v : vec)
+        {
+            for (int value : v)
+            {
+                cout << value << " ";
+            }
+            cout << "$ ";
+        }
         cout << endl;
     }
     return 0;
 }
 
 // } Driver Code Ends
+
+/* A binary tree Node
+
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+ */
+
+// Function to return the level order traversal line by line of a tree.
+vector<vector<int>> levelOrder(Node *node)
+{
+    queue<Node *> ele;
+    vector<vector<int>> ans;
+    if (node == NULL)
+        return ans;
+    ele.push(node);
+
+    while (ele.empty() == false)
+    {
+        int count = ele.size();
+        vector<int> temp;
+        for (int i = 0; i < count; i++)
+        {
+            Node *curr = ele.front();
+            ele.pop();
+            temp.push_back(curr->data);
+            if (curr->left != NULL)
+                ele.push(curr->left);
+            if (curr->right != NULL)
+                ele.push(curr->right);
+        }
+        ans.push_back(temp);
+    }
+    return ans;
+}
