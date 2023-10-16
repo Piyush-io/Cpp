@@ -1,1 +1,1 @@
-front + 1
+printKDistantfromLeaf(root->left) + printKDistantfromLeaf(root->right)
