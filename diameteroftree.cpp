@@ -103,26 +103,23 @@ class Solution
 {
 public:
     // Function to return the diameter of a Binary Tree.
-
-    int height(Node *root)
+    int ans = 0;
+    int height(Node root)
     {
-        if (root == NULL)
+        if (root == null)
             return 0;
-        return 1 + max(height(root->left), height(root->right));
+
+        int lh = height(root.left);
+        int rh = height(root.right);
+
+        ans = Math.max(ans, 1 + lh + rh);
+        return 1 + Math.max(lh, rh);
     }
-
-    int diameter(Node *root)
+    // Function to return the diameter of a Binary Tree.
+    int diameter(Node root)
     {
-        if (root == NULL)
-            return 0;
-
-        int lh = height(root->left);
-        int rh = height(root->right);
-
-        int ld = diameter(root->left);
-        int rd = diameter(root->right);
-
-        return max(1 + lh + rh, max(ld, rd));
+        int data = height(root);
+        return ans;
     }
 };
 
