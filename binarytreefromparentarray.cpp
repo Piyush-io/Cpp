@@ -99,7 +99,7 @@ public:
         for (auto x : elements)
         {
             int root = x.first;
-            int child = x.second;
+            int child = x.second; 
         }
         return root;
     }
