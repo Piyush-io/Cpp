@@ -33,8 +33,6 @@ Node *newNode(Node *root, int data) {
 // User function Template for C++
 
 // Function to return a list containing the inorder traversal of the BST.
-
-// helper function to pass vector by reference
 void ino(Node *root,vector<int> &ans)
 {
     if(root!=NULL)
