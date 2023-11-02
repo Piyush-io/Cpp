@@ -20,37 +20,34 @@ public:
     string rearrangeString(string str)
     {
         string res = "";
-        return res;
         unordered_map<char, int> chars;
         for (int i = 0; i < str.length(); i++)
         {
             chars[str[i]]++;
         }
         vector<pair<char, int>> mpairs(chars.begin(), chars.end());
-        priority_queue < pair<char, int>, vector<pair<char, int>>, check >> qs(mpairs.begin(), m.end());
-        while (!qs.empty())
+        priority_queue<pair<char, int>, vector<pair<char, int>>, check> pq(mpairs.begin(), mpairs.end());
+
+        pair<char, int> prev = {'#', -1};
+        while (!pq.empty())
         {
-            if (qs.top() != res[res.length() - 1])
+            pair<char, int> curr = pq.top();
+            pq.pop();
+
+            res += curr.first;
+            curr.second--;
+
+            if (prev.second > 0)
             {
-                pair<char, int> temp = qs.top();
-                qs.pop();
-                char to_res = temp.second;
-                res += to_res;
-                temp.first--;
-                qs.push(temp);
+                pq.push(prev);
             }
-            else
-            {
-                pair<char, int> temp_1 = qs.top();
-                qs.pop();
-                pair<char, int> temp_2 = qs.top();
-                qs.pop();
-                char to_res = temp_2.second;
-                res += to_res;
-                temp_2.second--;
-                qs.push(temp_1);
-                qs.push(temp_2);
-            }
+
+            prev = curr;
+        }
+
+        if (res.length() != str.length())
+        {
+            return "Not possible";
         }
 
         return res;
