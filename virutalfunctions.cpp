@@ -8,7 +8,7 @@ class LIST
     virtual void store(int value) = 0;
     virtual int retrieve() = 0;
 };
-
+// OOPS LAB
 class Stack : public LIST 
 {
 private:
