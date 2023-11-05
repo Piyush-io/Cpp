@@ -19,7 +19,7 @@ typedef pair<int , pair<int,int>> ppi;
 class Solution
 {
     public:
-    //Function to merge k sorted arrays.
+    //Function to merge k sorted arrays
     vector<int> mergeKArrays(vector<vector<int>> arr, int K)
     {
         vector<int> res;
