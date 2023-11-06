@@ -8,7 +8,7 @@ class Solution
 public:
     // Function to rearrange the characters in a string such that
     // no two adjacent characters are same.
-
+    // Fucking difficult question
     struct check
     {
         bool operator()(const pair<int, int> &a, const pair<int, int> &b)
