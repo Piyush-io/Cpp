@@ -8,6 +8,7 @@ class Solution
 {
 public:
     // Function to return k largest elements from an array.
+    // Uses heap
     vector<int> kLargest(int arr[], int n, int k)
     {
         vector<int> ans;
