@@ -7,6 +7,7 @@ class Solution
 {
 public:
     // Function to return the minimum cost of connecting the ropes.
+    // Easy...
     long long minCost(long long arr[], long long n)
     {
         priority_queue<long long, vector<long long>, greater<long long>> qs;
