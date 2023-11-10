@@ -8,6 +8,7 @@ class Solution
 public:
     // Function to return the sorted array.
     // Heap for first k elements then just one by one
+    // Now to next question
     vector<int> nearlySorted(int arr[], int n, int k)
     {
         priority_queue<int> qs;
