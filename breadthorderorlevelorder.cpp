@@ -40,6 +40,7 @@ struct Node
 class Solution
 {
 public:
+// Function to print level order traversal
     vector<int> levelOrder(Node *node)
     {
         queue<Node *> ele;
