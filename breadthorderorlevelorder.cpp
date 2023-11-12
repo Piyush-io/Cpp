@@ -40,8 +40,6 @@ struct Node
 class Solution
 {
 public:
-    // Function to return the level order traversal of a tree.
-    // This was the most i dont know fun code just too easy
     vector<int> levelOrder(Node *node)
     {
         queue<Node *> ele;
