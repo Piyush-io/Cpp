@@ -4,12 +4,12 @@ public:
 
     void generateBinaryCombinations(int n, std::unordered_map<string, int> &binaryMap)  
     {
-        for (int i = 0; i < (1 << n); ++i) {
-            std::string binaryString;
-            for (int j = n - 1; j >= 0; --j) {
-                binaryString += (i & (1 << j)) ? '1' : '0';
-            }
-            binaryMap[binaryString] = 0;
+        int totalCombinations = 1 << n;
+
+        for (int i = 0; i < totalCombinations; ++i) 
+        {
+            bitset<32> binary(i);
+            binaryMap[binary.to_string().substr(32 - n)] = 0;
         }
     }
 
