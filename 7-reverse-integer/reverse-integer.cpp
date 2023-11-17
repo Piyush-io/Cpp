@@ -1,19 +1,13 @@
-class Solution {
+class Solution {                      
 public:
     int reverse(int x) 
-    {       
-        long long res = 0;
-        while (x != 0) {
-            int digit = x % 10;
-            res = res * 10 + digit;
-            x /= 10;
-        }
-
-        if (res > INT_MAX || res < INT_MIN) 
-        {
-            return 0;
-        }
-        
-        return static_cast<int>(res);
+    {
+        int r=0;
+        while(x){
+        if (r>INT_MAX/10 || r<INT_MIN/10) return 0;
+        r=r*10+x%10; // find remainder and add its to r
+        x=x/10;     // Update the value of x
+        } 
+        return r;  // if r in the 32 bit range then return r
     }
-};
+}; 
