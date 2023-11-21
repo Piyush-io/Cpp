@@ -18,9 +18,7 @@ public:
         const int MOD = 1e9 + 7;
 
         for (int i = 0; i < nums.size(); i++) {
-            int rev_num = reverseNum(nums[i]);
-            int diff = nums[i] - rev_num;
-            count[diff]++;
+            count[nums[i] - reverseNum(nums[i])]++;
         }
 
         for (auto x : count) {
