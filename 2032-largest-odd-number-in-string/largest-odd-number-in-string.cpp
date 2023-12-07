@@ -1,3 +1,4 @@
+static const int __ = []() { std::ios::sync_with_stdio(false); std::cin.tie(nullptr); std::cout.tie(nullptr); return 0; }();
 class Solution {
 public:
     string largestOddNumber(string num) 
