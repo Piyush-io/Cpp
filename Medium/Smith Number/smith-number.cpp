@@ -20,23 +20,25 @@ class Solution {
     }
 
     int sumPrimes(int n) {
-        int sum = 0, factors = 0, k = 2;
+        int sum = 0, factors = 0, i = 2;
         while(n > 1) {
-            if(n % k == 0) {
-                sum += sumOfDigits(k);
+            if(n % i == 0) 
+            {
+                sum += sumOfDigits(i);
                 factors++;
-                n /= k;
-            } else
-                k++;
+                n /= i;
+            } 
+            else
+                i++;
         }
         
-        return factors <= 1 ? 0 : sum; // composite number must have more than 1 factors;
+        return factors <= 1 ? 0 : sum;
     }
 
     int smithNum(int n) {
-        int sumOfN = sumOfDigits(n);
-        int sumOfPrimes = sumPrimes(n);
-        return sumOfN == sumOfPrimes;
+        int digitsum = sumOfDigits(n);
+        int primesum = sumPrimes(n);
+        return digitsum == primesum;
     }
 };
 
