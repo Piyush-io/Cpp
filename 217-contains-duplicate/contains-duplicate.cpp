@@ -10,7 +10,6 @@ public:
             else
                 present.insert(x);
         }
-
         return false;
     }
 };
