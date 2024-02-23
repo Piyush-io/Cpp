@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class samesumindex {
     public static int findequi(int[] arr, int n) {
         int result = -1;
