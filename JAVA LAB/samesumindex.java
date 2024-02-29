@@ -22,7 +22,6 @@ public class samesumindex {
         }
         return result;
     }
-
     public static void main(String[] args) {
         int n;
         Scanner scan = new Scanner(System.in);
