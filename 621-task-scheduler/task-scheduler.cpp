@@ -1,7 +1,11 @@
     class Solution {
     public:
         int leastInterval(vector<char>& tasks, int n) 
-        {
+        {   
+            std::ios::sync_with_stdio(false);
+            std::cin.tie(nullptr);
+            std::cout.tie(nullptr);
+            if(n == 0) return tasks.size();
             unordered_map<char , int> count;
             int max_count = 0;
             int max_occurances = 0;
