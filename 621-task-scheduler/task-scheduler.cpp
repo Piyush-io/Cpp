@@ -1,27 +1,42 @@
     class Solution {
     public:
-        int leastInterval(vector<char>& tasks, int n) 
+        int leastInterval(vector<char>& tasks, int k) 
         {   
-            std::ios::sync_with_stdio(false);
-            std::cin.tie(nullptr);
-            std::cout.tie(nullptr);
-            if(n == 0) return tasks.size();
-            unordered_map<char , int> count;
-            int max_count = 0;
-            int max_occurances = 0;
-            for(auto x : tasks)
-            {
-                count[x]++;
-                max_count = max(count[x] , max_count);
+            ios_base::sync_with_stdio(0);
+            cin.tie(0);
+            cout.tie(0);
+                    
+            int counter[26] = {0};
+            int maxF = 0; // max_freq
+            int maxFc = 0; // no of ch having max_freq
+
+            int N = tasks.size();
+            
+            for (int i = 0; i < N; i++) {
+                counter[tasks[i] - 'A']++;
             }
-            for(auto x : count)
-            {
-                if(x.second == max_count)
-                    max_occurances++;
+            
+            for (int x : counter) {
+                if (maxF == x) {
+                    maxFc++;
+                }
+                if (maxF < x) {
+                    maxF = x;
+                    maxFc = 1;
+                }
             }
-            int empty_slots = (max_count-1) * (n - (max_occurances - 1));
-            int remaining_tasks = tasks.size() - max_count * max_occurances;
-            int idles = max(0 , empty_slots - remaining_tasks);
-            return tasks.size() + idles;
+            
+            int gaps = maxF - 1; // number of gaps required
+            
+            int gaps_len = k - (maxFc - 1); // number of ch that can be fit in partition gaps
+            
+            int avail_slot = gaps * gaps_len; // empty slots = number of gaps * gaps_len
+            
+            int avail_task = N - maxF * maxFc;
+            
+            int idles = max(0, avail_slot - avail_task); // place available tasks in total available
+            // slots and rest as idle
+            
+            return N + idles;
         }
     };
