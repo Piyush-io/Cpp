@@ -12,25 +12,25 @@
     public:
         ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) 
         {   
-            ListNode* temp = list1;
-            temp=list1;
-            ListNode* remp = list1;
-            while(b>0){
-                temp = temp->next;
-                b--;
+            ListNode* curr = list1;
+        
+            for (int i = 1; i < a; i++) {
+                curr = curr->next;
             }
-            remp = temp->next;
-            temp = list1;
-            while(a>1){
-                temp = temp->next;
-                a--;
+
+            for (int i = a; i <= b; i++) {
+                curr->next = curr->next->next;
             }
-            temp->next =list2;
-            ListNode* t = list2;
-            while(t->next!=NULL){
-                t = t->next;
+
+            ListNode* tmp = curr->next;
+            curr->next = list2;
+
+            while (list2->next) {
+                list2 = list2->next;
             }
-            t->next = remp;
+
+            list2->next = tmp;
+
             return list1;
     }
 };
