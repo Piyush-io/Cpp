@@ -18,7 +18,6 @@ public:
             return ans;
         
         queue<TreeNode*> lvlOrder;
-        stack<TreeNode*> s;
         lvlOrder.push(root);
         int i = 0;
         while(!lvlOrder.empty()) {
