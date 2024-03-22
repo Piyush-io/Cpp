@@ -19,7 +19,6 @@ public:
             eles.push_back(curr->val);
             curr = curr->next;
         }
-        
         int n = eles.size();
         int i = 0;
         int j = n-1;
