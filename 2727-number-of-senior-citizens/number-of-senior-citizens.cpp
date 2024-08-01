@@ -5,9 +5,7 @@ public:
         int count = 0;
         for(string x : details)
         {
-            string temp = x;
-            string AgeInString = temp.substr(11,2);
-            int age = stoi(AgeInString);
+            int age = stoi(x.substr(11, 2));
             if(age > 60)
                 count++;
         }
