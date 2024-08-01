@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int countSeniors(vector<string>& details) 
+    {
+        int count = 0;
+        for(string x : details)
+        {
+            string temp = x;
+            string AgeInString = temp.substr(11,2);
+            int age = stoi(AgeInString);
+            if(age > 60)
+                count++;
+        }
+
+        return count;
+    }
+};
