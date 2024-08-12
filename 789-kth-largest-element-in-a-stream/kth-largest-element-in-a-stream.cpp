@@ -1,6 +1,6 @@
 class KthLargest {
 public:
-    priority_queue<int, vector<int>, greater<int>> min_heap;
+    priority_queue<int, vector<int>, greater<int>> buffer;
     int k_largest;
     
     KthLargest(int k, vector<int>& nums) {
@@ -11,13 +11,13 @@ public:
     }
     
     int add(int val) {
-        if (min_heap.size() < k_largest) {
-            min_heap.push(val);
-        } else if (val > min_heap.top()) {
-            min_heap.pop();
-            min_heap.push(val);
+        if (buffer.size() < k_largest) {
+            buffer.push(val);
+        } else if (val > buffer.top()) {
+            buffer.pop();
+            buffer.push(val);
         }
-        return min_heap.top();
+        return buffer.top();
     }
 };
 
